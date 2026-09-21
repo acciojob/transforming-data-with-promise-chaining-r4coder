@@ -1,29 +1,47 @@
-//your JS code here. If required.
+const btn = document.getElementById("btn");
+const input = document.getElementById("ip");
 const output = document.getElementById("output");
 
-function getNumbers() {
-    return new Promise((resolve) => {
+btn.addEventListener("click", () => {
+    const value = Number(input.value);
+
+    new Promise((resolve) => {
         setTimeout(() => {
-            resolve([1, 2, 3, 4]);
-        }, 3000);
-    });
-}
+            resolve(value);
+        }, 2000);
+    })
+    .then((result) => {
+        const newResult = result * 2;
+        output.textContent = "Result: " + newResult;
 
-getNumbers()
-    .then((numbers) => {
         return new Promise((resolve) => {
-            const evenNumbers = numbers.filter((num) => num % 2 === 0);
-
             setTimeout(() => {
-                output.textContent = evenNumbers;
-                resolve(evenNumbers);
-            }, 1000);
+                resolve(newResult);
+            }, 2000);
         });
     })
-    .then((evenNumbers) => {
-        const doubledNumbers = evenNumbers.map((num) => num * 2);
+    .then((result) => {
+        const newResult = result - 3;
+        output.textContent = "Result: " + newResult;
 
-        setTimeout(() => {
-            output.textContent = doubledNumbers;
-        }, 2000);
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(newResult);
+            }, 2000);
+        });
+    })
+    .then((result) => {
+        const newResult = result / 2;
+        output.textContent = "Result: " + newResult;
+
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                resolve(newResult);
+            }, 2000);
+        });
+    })
+    .then((result) => {
+        const newResult = result + 10;
+        output.textContent = "Final Result: " + newResult;
     });
+});
