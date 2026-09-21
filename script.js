@@ -7,6 +7,7 @@ btn.addEventListener("click", function () {
 
     new Promise((resolve) => {
         setTimeout(() => {
+            output.textContent = "Result: " + value;
             resolve(value);
         }, 2000);
     })
@@ -16,7 +17,7 @@ btn.addEventListener("click", function () {
                 const newResult = result * 2;
                 output.textContent = "Result: " + newResult;
                 resolve(newResult);
-            }, 2000);
+            }, 1000);
         });
     })
     .then((result) => {
@@ -25,7 +26,7 @@ btn.addEventListener("click", function () {
                 const newResult = result - 3;
                 output.textContent = "Result: " + newResult;
                 resolve(newResult);
-            }, 2000);
+            }, 1000);
         });
     })
     .then((result) => {
@@ -34,7 +35,7 @@ btn.addEventListener("click", function () {
                 const newResult = result / 2;
                 output.textContent = "Result: " + newResult;
                 resolve(newResult);
-            }, 2000);
+            }, 1000);
         });
     })
     .then((result) => {
@@ -43,7 +44,7 @@ btn.addEventListener("click", function () {
                 const newResult = result + 10;
                 output.textContent = "Final Result: " + newResult;
                 resolve(newResult);
-            }, 2000);
+            }, 1000);
         });
     });
 });
